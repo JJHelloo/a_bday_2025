@@ -161,6 +161,7 @@
     .mute-button {
       display: none;
     }
+    /* Updated Compliment Form Style */
     .compliment-form {
       position: fixed;
       bottom: 20px;
@@ -170,6 +171,12 @@
       gap: 10px;
       max-width: 90%;
       z-index: 100;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      padding: 10px 15px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
     }
     .compliment-form input {
       padding: 8px;
@@ -177,6 +184,11 @@
       border-radius: 4px;
       width: 250px;
       max-width: 70%;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+    .compliment-form input::placeholder {
+      color: #eee;
     }
     .compliment-form button {
       padding: 8px 12px;
@@ -185,6 +197,10 @@
       background: rgba(0,0,0,0.5);
       color: #fff;
       cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .compliment-form button:hover {
+      background: rgba(0,0,0,0.7);
     }
     /* Birthday message modal */
     .birthday-modal {
