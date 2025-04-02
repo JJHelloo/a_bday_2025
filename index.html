@@ -50,10 +50,12 @@
       width: 100vw;
       height: 100vh;
     }
+    /* Ensure touch interactions work well */
     .star-wrapper {
       position: absolute;
       cursor: pointer;
       outline: none;
+      touch-action: none; /* Prevent accidental page scroll during drag */
     }
     .star {
       width: 10px;
@@ -143,6 +145,7 @@
       left: -25px;
       transition: opacity 0.3s ease-in-out;
     }
+    /* Hover state for desktops */
     .star-wrapper:hover .compliment {
       opacity: 1;
     }
@@ -429,8 +432,9 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
+    // Reduce particle count on mobile for performance
+    const particleCount = window.innerWidth < 768 ? 50 : 100;
     const particles = [];
-    const particleCount = 100;
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -461,7 +465,7 @@
     }
     animateParticles();
     
-    // Function to temporarily boost particle speed when a star is clicked
+    // Temporarily boost particle speed when a star is clicked
     function boostParticles() {
       particleSpeedMultiplier = 3;
       setTimeout(() => {
@@ -708,11 +712,17 @@
       wrapper.addEventListener('mousedown', startDrag);
       wrapper.addEventListener('touchstart', startDragTouch);
     
-      // Click to toggle favorite (and boost particles) if not dragged
+      // Click to toggle favorite (and boost particles) if not dragged.
+      // On mobile, since hover isn't available, we also briefly show the compliment.
       wrapper.addEventListener("click", (e) => {
         if (!wrapper.dragging) {
           wrapper.classList.toggle("favorited");
           boostParticles();
+          const complimentEl = wrapper.querySelector('.compliment');
+          complimentEl.style.opacity = '1';
+          setTimeout(() => {
+            complimentEl.style.opacity = '0';
+          }, 2000);
         }
       });
     
