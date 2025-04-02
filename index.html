@@ -423,7 +423,7 @@
     // *********************
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
-    let particleSpeedMultiplier = 1;
+    let particleSpeedMultiplier = 3;
     
     function resizeCanvas() {
       canvas.width = window.innerWidth;
@@ -467,9 +467,9 @@
     
     // Temporarily boost particle speed when a star is clicked
     function boostParticles() {
-      particleSpeedMultiplier = 3;
+      particleSpeedMultiplier = 37;
       setTimeout(() => {
-        particleSpeedMultiplier = 1;
+        particleSpeedMultiplier = 3;
       }, 500);
     }
     
@@ -509,7 +509,7 @@
       setTimeout(() => {
         createRandomShootingStar();
         scheduleShootingStar();
-      }, 5000 + Math.random() * 5000);
+      }, 2000 + Math.random() * 1000);
     }
     scheduleShootingStar();
     
@@ -557,23 +557,32 @@
     
     let compliments = JSON.parse(localStorage.getItem('userCompliments')) || [
       "I love your smile!",
-      "Your laughter is contagious.",
-      "You're my favorite person.",
+      "Your laugh is literally impossible not to smile at",
+      "You're my favorite person",
       "You light up my life!",
-      "Your creativity inspires me.",
-      "I admire your strength.",
-      "You're so thoughtful.",
-      "I love your sense of humor.",
-      "You're incredibly kind.",
-      "You make every day special."
+      "You are my Chikorita forever",
+      "Your creativity inspires me",
+      "I admire your strength",
+      "You're so thoughtful and I appreciate everything you do",
+      "I love your goofy jokes :) they always catch me off guard",
+      "You are the brightest star in my life",
+      "If chaos were a person, it would ask you for advice",
+      "You make every weekend special",
+      "You are the stinky to my hairy",
+      "Happy Birthday my love",
+      "I love when you blackout and do the bambi",
+      "I love the way you randomly quote moives",
+      "You could make baking a cake feel like an adventure",
+      "Mr. Sansweet didn’t ask to be saved...",
+      "A LAMA HE IS SUPPOSED TO BE DEAD!"
     ];
     
     const ariesStars = [
-      { x: 100, y: 200, compliment: "You have a bold heart." },
-      { x: 180, y: 160, compliment: "You're full of courage." },
-      { x: 260, y: 180, compliment: "Your spark inspires others." },
-      { x: 340, y: 140, compliment: "You blaze your own trail." },
-      { x: 420, y: 200, compliment: "You're fiercely loyal." }
+      { x: 100, y: 200, compliment: "You are a big ol nerd and I love it" },
+      { x: 180, y: 160, compliment: "I love that we laugh at the same ridiculous things" },
+      { x: 260, y: 180, compliment: "You’ve been out here evolving like a Pokémon and I’m loving it" },
+      { x: 340, y: 140, compliment: "Ohhh pwwincess I love your curls in the puff puff" },
+      { x: 420, y: 200, compliment: "Your smile always makes me feel at home :)" }
     ];
     
     const ariesConnections = [
